@@ -1,22 +1,6 @@
 #include "sort.h"
 #include <stdio.h>
 
-
-/**
- * void swap_ints(int *a, int *b);
- * @a:the first integer to swap
- * @b: the second integer to swap
- */
-
-void swap_ints(int *a, int *b)
-{
-	int tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
-
 /**
  * lomuto_partition - lomuto partition scheme
  * @array: array of integers
