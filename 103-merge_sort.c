@@ -74,12 +74,12 @@ void merge_subarray(int *buff, int *array, size_t left,
 
 	while (i < middle)
 		buff[k++] = array[i++];
-	while (j < back)
+	while (j < right)
 		buff[k++] = array[j++];
 
 	for (k = left, i = 0; k < right; k++)
 		array[k] = buff[i++];
 
 	printf("[Done]: ");
-	print_array(array + left, back - right);
+	print_array(array + left, right - left);
 }
