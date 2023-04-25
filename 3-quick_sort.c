@@ -1,7 +1,7 @@
 #include "sort.h"
 
 void swap(int *array, size_t size, int *a, int *b);
-size_t lomuto_partition(int *array, size_t size,  ssize_t low, size_t high);
+size_t lomuto_partition(int *array, size_t size,  ssize_t low, ssize_t high);
 void quicksort(int *array, size_t size, ssize_t low, ssize_t high);
 void quick_sort(int *array, size_t size);
 
@@ -34,7 +34,7 @@ void swap(int *array, size_t size, int *a, int *b)
  * Return: index of the pivot element
  */
 
-size_t lomuto_partition(int *array, size_t size,  ssize_t low, size_t high)
+size_t lomuto_partition(int *array, size_t size,  ssize_t low, ssize_t high)
 {
 	int i, j, pivot;
 	pivot = array[high];
