@@ -3,7 +3,7 @@
 void merge_sort(int *array, size_t size);
 void merge_recursion(int *buff, int *array, size_t left, size_t right);
 void merge_subarray(int *arr, int *array, size_t left,
-		    size_t middle, size_t right)
+		    size_t middle, size_t right);
 /**
  * merge_sort - Sort an array of integers in ascending
  *              order using the merge sort algorithm.
@@ -16,7 +16,7 @@ void merge_sort(int *array, size_t size)
 {
 	int *buff;
 
-	if (!array || size < 2)
+	if (array == NULL || size < 2)
 		return;
 
 	buff = malloc(sizeof(int) * size);
@@ -26,60 +26,60 @@ void merge_sort(int *array, size_t size)
 }
 
 /**
- * merge_sort_recursive - Implement the merge sort algorithm through recursion.
- * @subarr: A subarray of an array of integers to sort.
+ * merge_recursion - Implement the merge sort algorithm through recursion.
  * @buff: A buffer to store the sorted result.
+ * @array: Array to merge sort
  * @front: The front index of the subarray.
  * @back: The back index of the subarray.
  */
-void merge_recursion(int *buff, int *array, size_t left, size_t right)
+void merge_recursion(int *buff, int *array, size_t front, size_t back)
 {
 	size_t middle;
 
-	if (right - left > 1)
+	if (back - front > 1)
 	{
-		middle = (right - left) / 2 + left;
-		merge_recursion(arr, array, left, middle);
-		merge_recursion(arr, array, middle, right);
-		merge_subarray(arr, array, left, middle, right);
+		middle = (back - front) / 2 + front;
+		merge_recursion(buff, array, front, middle);
+		merge_recursion(buff, array, middle, back);
+		merge_subarray(buff, array, front, middle, back);
 	}
 }
 
 /**
- * merge_subarray - merges subarrays
- * @arr: copy array
- * @array: array to merge
- * @left: index of the left element
- * @middle: index of the middle element
- * @right: index of the right element
+ * merge_subarray - Merg  a subarray of integers.
+ * @buff: Copy array.
+ * @array: Array to merge
+ * @front: The front index of the array.
+ * @middle: The middle index of the array.
+ * @back: The back index of the array.
  */
-void merge_subarray(int *arr, int *array, size_t left,
-		size_t middle, size_t right)
+void merge_subarray(int *buff, int *array, size_t front,
+		size_t middle, size_t back)
 {
 	size_t i, j, k = 0;
 
 	printf("Merging...\n");
-	printf("[left]: ");
-	print_array(array + left, middle  - left);
-	printf("[right]: ");
-	print_array(array + middle, right - middle);
+	printf("[front]: ");
+	print_array(array + front, middle  - front);
+	printf("[back]: ");
+	print_array(array + middle, back - middle);
 
-	for (i = left, j = middle; i < middle && j < right; k++)
+	for (i = front, j = middle; i < middle && j < back; k++)
 	{
 		if (array[i] < array[j])
-			arr[k] = array[i++];
+			buff[k] = array[i++];
 		else
-			arr[k] = array[j++];
+			buff[k] = array[j++];
 	}
 
 	while (i < middle)
-		arr[k++] = array[i++];
-	while (j < right)
-		arr[k++] = array[j++];
+		buff[k++] = array[i++];
+	while (j < back)
+		buff[k++] = array[j++];
 
-	for (k = left, i = 0; k < right; k++)
-		array[k] = arr[i++];
+	for (k = front, i = 0; k < back; k++)
+		array[k] = buff[i++];
 
 	printf("[Done]: ");
-	print_array(array + left, right - left);
+	print_array(array + front, back - front);
 }
