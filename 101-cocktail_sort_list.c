@@ -41,24 +41,30 @@ void cocktail_sort_list(listint_t **list)
 		return;
 	do {
 		swapped = 0;
-		while (node->next != NULL) {
-			if (node->n > node->next->n) {
+		while (node->next != NULL)
+		{
+			if (node->n > node->next->n)
+			{
 				swap(list, node);
 				swapped = 1;
-			} else {
+			} else
+			{
 				node = node->next;
 			}
 		}
 		if (!swapped)
 			break;
 		swapped = 0;
-		while (node->prev != NULL) {
-			if (node->n < node->prev->n) {
+		while (node->prev != NULL)
+		{
+			if (node->n < node->prev->n)
+			{
 				swap(list, node->prev);
 				swapped = 1;
-			} else {
-		       node = node->prev;
-		       }
+			} else
+			{
+				node = node->prev;
+			}
 		}
 	} while (swapped);
 }
