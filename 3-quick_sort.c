@@ -6,11 +6,11 @@ void quicksort(int *array, size_t size, ssize_t low, ssize_t high);
 void quick_sort(int *array, size_t size);
 
 /**
- * swap - swaps 2 int values
+ * swap - swap two integers in an array.
  * @array: the integer array to sort
  * @size: the size of the array
- * @a: address of first value
- * @b: address of second value
+ * @a: address of first value to swap
+ * @b: address of second value to swap
  *
  * Return: void
  */
@@ -36,8 +36,8 @@ void swap(int *array, size_t size, int *a, int *b)
 
 size_t lomuto_partition(int *array, size_t size,  ssize_t low, size_t high)
 {
-	int pivot = array[high];
-	int i, j;
+	int i, j, pivot;
+	pivot = array[high];
 
 	for (i = j = low; j < high; j++)
 		if (array[j] < pivot)
