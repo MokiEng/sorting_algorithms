@@ -1,8 +1,8 @@
 #include "sort.h"
 /**
  * bubble_sort - Sort an array of inegers in ascending order.
- * @array: an array of integers to sort.
- * @size: the size of the array.
+ * @array: An array of integers to sort.
+ * @size: The size of the array.
  *
  * Description: Prints the array after each swap.
  */
